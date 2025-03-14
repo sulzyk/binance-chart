@@ -9,3 +9,7 @@ To install dependency
 To run app
 
 ```pnpm run dev```
+
+To run tests
+
+```pnpm run test```
