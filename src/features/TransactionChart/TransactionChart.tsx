@@ -1,3 +1,4 @@
+import './TransactionChart.css'
 import { useEffect, useState } from "react";
 import { fetchBinanceData } from "../../backend";
 import { BinanceApi } from "../types";
@@ -16,10 +17,14 @@ export function TransactionChart() {
     }
 
     updateData();
-    const interval = setInterval(updateData, 10000)
+    const interval = setInterval(updateData, 5000)
     return () => clearInterval(interval)
   }, [])
+
   const options = usePrepareEChartOptions(data);
 
-  return<ReactECharts option={options} />
+  return (
+    <div className="chart-wrapper">
+      <ReactECharts option={options} />
+    </div>)
 }
