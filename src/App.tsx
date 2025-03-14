@@ -1,5 +1,5 @@
 import './App.css'
-import { TransactionChart } from './features/TransactionChart'
+import { TransactionChart } from './features/TransactionChart/TransactionChart'
 
 function App() {
 

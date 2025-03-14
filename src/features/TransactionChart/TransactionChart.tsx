@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
-import { fetchBinanceData } from "../backend";
-import { BinanceApi } from "./types";
+import { fetchBinanceData } from "../../backend";
+import { BinanceApi } from "../types";
+import ReactECharts from 'echarts-for-react';
+import { usePrepareEChartOptions } from "./hooks/usePrepareEChartOptions";
 
 export function TransactionChart() {
   const [data, setData] = useState<BinanceApi[]>([]);
@@ -17,6 +19,7 @@ export function TransactionChart() {
     const interval = setInterval(updateData, 10000)
     return () => clearInterval(interval)
   }, [])
-  
-  return<></>
+  const options = usePrepareEChartOptions(data);
+
+  return<ReactECharts option={options} />
 }
